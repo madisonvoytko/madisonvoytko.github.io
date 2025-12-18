@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison Voytko</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #faf8f5;
+            color: #2c2419;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 3rem 0 2rem;
+            border-bottom: 2px solid #e8dfd5;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #c4956c;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #6b5d4f;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #6b5d4f;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #e8dfd5;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: #c4956c;
+            color: white;
+            border-color: #c4956c;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #2c2419;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c4956c;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #8b6f47;
+            margin-bottom: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .about-main {
+            color: #6b5d4f;
+            line-height: 1.8;
+        }
+
+        .about-main p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-sidebar {
+            background: white;
+            padding: 2rem;
+            border: 1px solid #e8dfd5;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .about-sidebar h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #c4956c;
+        }
+
+        .about-sidebar ul {
+            list-style: none;
+        }
+
+        .about-sidebar li {
+            padding: 0.5rem 0;
+            color: #6b5d4f;
+            border-bottom: 1px solid #f5f1eb;
+        }
+
+        .about-sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-box {
+            background: #f5f1eb;
+            padding: 1.5rem;
+            border-left: 4px solid #c4956c;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            color: #8b6f47;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box p {
+            color: #6b5d4f;
+            line-height: 1.7;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e8dfd5;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c4956c;
+            border: 3px solid #faf8f5;
+        }
+
+        .timeline-date {
+            color: #8b6f47;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: #2c2419;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            color: #c4956c;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-description {
+            color: #6b5d4f;
+            line-height: 1.7;
+        }
+
+        .timeline-description ul {
+            margin-top: 0.8rem;
+            margin-left: 1.5rem;
+        }
+
+        .timeline-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border: 1px solid #e8dfd5;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #c4956c;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(196, 149, 108, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #8b6f47;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.4rem 0;
+            color: #6b5d4f;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #e8dfd5;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #c4956c;
+            box-shadow: 0 8px 16px rgba(196, 149, 108, 0.15);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            color: #2c2419;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            color: #8b6f47;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #6b5d4f;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background: #f5f1eb;
+            color: #8b6f47;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid #e8dfd5;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .award-item {
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid #e8dfd5;
+            border-radius: 8px;
+            border-left: 4px solid #c4956c;
+        }
+
+        .award-title {
+            font-weight: 600;
+            color: #2c2419;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-description {
+            color: #6b5d4f;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 3rem 0;
+            border-top: 2px solid #e8dfd5;
+            text-align: center;
+            color: #6b5d4f;
+            margin-top: 6rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 0;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                padding-left: 0;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Madison Voytko</h1>
+            <p class="subtitle">Biomedical Engineering - Mechanical Systems & Research</p>
+            <div class="contact-links">
+                <a href="mailto:Madison.Voytko@colorado.edu">Email</a>
+                <a href="https://www.linkedin.com/in/madison-voytko/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/madisonvoytko" target="_blank">GitHub</a>
+                <a href="Madison_Voytko_Resume.pdf" target="_blank" style="background: #c4956c; color: white; border-color: #c4956c;">Resume</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="about">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-main">
+                        <p>
+                            I'm a Biomedical Engineering student at the University of Colorado Boulder (graduating May 2026) with a minor in Materials Science & Engineering. My work focuses on the intersection of mechanical design, microfluidics, and tissue engineering—specifically developing joint-on-chip systems to model osteoarthritis progression and advance therapeutic testing.
+                        </p>
+                        <p>
+                            As I approach graduation, I'm focused on gaining industry experience that bridges my research background with real-world medical device development. Most of my technical experience has been research-based, so I'm eager to understand what day-to-day work in industry looks like and discover what truly resonates with me professionally. I thrive in environments where I can be hands-on, detail-oriented, and collaborate across disciplines to solve complex problems.
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>Mental Health Advocacy</h4>
+                            <p>
+                                Beyond engineering, I'm deeply committed to mental health advocacy. I'm an ambassador for Robbie's Hope, a foundation promoting teen mental health and suicide prevention that was started by a teammate's parents after we lost him when I was 13. In September 2024, I ran the Boulderthon marathon in memory of a close friend we lost to suicide, raising awareness and funds for mental health support. This work reminds me why I'm drawn to biomedical engineering—creating solutions that genuinely improve lives.
+                            </p>
+                        </div>
+
+                        <p>
+                            I competed as a varsity swimmer for 12 years, serving as team captain and maintaining a 4.0+ GPA throughout high school. After graduation, I transitioned to coaching, eventually becoming head coach. These experiences taught me how to lead under pressure, mentor others, and balance competing priorities—skills that directly translate to engineering teamwork and project management.
+                        </p>
+                    </div>
+
+                    <div class="about-sidebar">
+                        <h3>Quick Facts</h3>
+                        <ul>
+                            <li><strong>Graduation:</strong> May 2026</li>
+                            <li><strong>Major:</strong> Biomedical Engineering</li>
+                            <li><strong>Minor:</strong> Materials Science</li>
+                            <li><strong>Location:</strong> Boulder, CO</li>
+                        </ul>
+
+                        <h3 style="margin-top: 2rem;">Involvements</h3>
+                        <ul>
+                            <li>Society of Women Engineers</li>
+                            <li>MPOWR Kickboxing</li>
+                            <li>CU Boulder Hiking Club</li>
+                            <li>Robbie's Hope Ambassador</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <p class="timeline-date">August 2024 - Present</p>
+                        <h3 class="timeline-title">Undergraduate Researcher</h3>
+                        <p class="timeline-org">Neu Research Lab, CU Boulder</p>
+                        <div class="timeline-description">
+                            <p>Investigating joint-on-chip systems to model osteoarthritis progression through microfluidic design and tissue engineering.</p>
+                            <ul>
+                                <li>Designed and fabricated PDMS-based microfluidic devices with controlled mechanical actuation</li>
+                                <li>Performed molecular assays (qPCR, ELISA) and confocal microscopy for cellular response quantification</li>
+                                <li>Developed lab protocols and SOPs, improving onboarding efficiency for new team members</li>
+                                <li>Collaborated across disciplines to enhance translational relevance of research findings</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <p class="timeline-date">August 2024 - Present</p>
+                        <h3 class="timeline-title">Test & Systems Engineer</h3>
+                        <p class="timeline-org">3D-Printed Brain Phantom Project (CaliberMRI Partnership)</p>
+                        <div class="timeline-description">
+                            <p>Led verification testing for biomimetic MRI phantom development on 6-person engineering team.</p>
+                            <ul>
+                                <li>Designed system-level testing protocols for seal integrity, structural stability, and thin-wall performance</li>
+                                <li>Identified critical failure modes and translated findings into design modifications</li>
+                                <li>Built comprehensive FMEA to prioritize high-risk mechanisms</li>
+                                <li>Delivered technical presentations to CaliberMRI stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <p class="timeline-date">May 2024 - August 2024</p>
+                        <h3 class="timeline-title">Startup Operations & Innovation Intern</h3>
+                        <p class="timeline-org">MPOWR Kickboxing, Golden, CO</p>
+                        <div class="timeline-description">
+                            <p>Contributed to franchise launch by designing scalable operational systems and member experiences.</p>
+                            <ul>
+                                <li>Engineered complete member onboarding process from concept to implementation</li>
+                                <li>Created training materials and workflows supporting franchise scalability</li>
+                                <li>Led social media strategy and community engagement driving early membership growth</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <p class="timeline-date">2018 - 2022</p>
+                        <h3 class="timeline-title">Head Swim Coach</h3>
+                        <p class="timeline-org">Competitive Swimming Program</p>
+                        <div class="timeline-description">
+                            <p>Promoted from assistant to head coach after competing as varsity team captain for 12 years. Managed training programs, mentored athletes, and balanced coaching responsibilities with maintaining 4.0+ GPA.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>CAD & Design</h3>
+                        <ul>
+                            <li>SolidWorks (CAD & FEA)</li>
+                            <li>3D Modeling</li>
+                            <li>Device Prototyping</li>
+                            <li>User-Centered Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Lab & Fabrication</h3>
+                        <ul>
+                            <li>PDMS Microfabrication</li>
+                            <li>Microfluidics</li>
+                            <li>Confocal Microscopy</li>
+                            <li>Sterile Technique</li>
+                            <li>qPCR & ELISA</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Analysis & Programming</h3>
+                        <ul>
+                            <li>MATLAB</li>
+                            <li>Data Analysis</li>
+                            <li>Experimental Design</li>
+                            <li>Protocol Development</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Professional Skills</h3>
+                        <ul>
+                            <li>Technical Documentation</li>
+                            <li>Team Collaboration</li>
+                            <li>Public Presentations</li>
+                            <li>Process Design</li>
+                            <li>Leadership & Mentoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>Projects</h2>
+                
+                <div class="project-card">
+                    <h3>Joint-on-Chip Mechanotransduction Platform</h3>
+                    <p class="project-date">August 2024 - Present | Neu Research Lab</p>
+                    <p class="project-description">
+                        Designed and fabricated a microfluidic device to investigate osteoarthritis progression through controlled mechanical stimulation of cartilage and bone tissues. Addressing the $140B annual burden of OA in the US, this platform overcomes limitations of existing models by replicating the complex mechanical environment of human joints—something 2D cultures and animal models cannot achieve.
+                    </p>
+                    <p class="project-description">
+                        <strong>Key Contributions:</strong> Engineered multi-layer PDMS chip architecture in SolidWorks with integrated membrane system. Optimized fabrication protocols including plasma bonding and 50 micron membrane integration. Developed pressure-driven actuation system generating reproducible cyclic shear deformation. Performed confocal microscopy imaging and ImageJ analysis across 12 experimental trials, achieving less than 15% device-to-device variance. Currently building ABAQUS finite element model to predict tissue-level stress distributions under physiological loading.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">ABAQUS FEA</span>
+                        <span class="tag">PDMS Fabrication</span>
+                        <span class="tag">Microfluidics</span>
+                        <span class="tag">Confocal Microscopy</span>
+                        <span class="tag">ImageJ</span>
+                        <span class="tag">Tissue Engineering</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Biomimetic Brain Phantom for Quantitative MRI</h3>
+                    <p class="project-date">August 2024 - Present | CaliberMRI Partnership</p>
+                    <p class="project-description">
+                        Served as Test & Systems Engineer on 6-person team developing quantitative MRI brain phantom to standardize clinical imaging calibration. Designed and executed comprehensive verification testing program validating phantom performance against stakeholder specifications.
+                    </p>
+                    <p class="project-description">
+                        <strong>Key Contributions:</strong> Designed spectrophotometric diffusion test protocol quantifying solute transfer across 300 micron barriers. Developed mechanical compression testing procedure validating structural integrity. Created bubble-leak evaluation protocol with vacuum and pressure testing. Analyzed experimental data demonstrating less than 1% solute transfer over 48 hours, confirming effective compartment isolation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Test Engineering</span>
+                        <span class="tag">Spectrophotometry</span>
+                        <span class="tag">Mechanical Testing</span>
+                        <span class="tag">Design Verification</span>
+                        <span class="tag">FMEA</span>
+                        <span class="tag">Medical Devices</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Startup Operations & Systems Design</h3>
+                    <p class="project-date">May 2024 - August 2024 | MPOWR Kickboxing</p>
+                    <p class="project-description">
+                        Contributed to launch and operational development of fitness franchise startup, working directly with founder to design scalable business systems and member experiences. Engineered complete member onboarding process from concept to implementation, creating workflows and training materials supporting franchise scalability.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Systems Design</span>
+                        <span class="tag">Process Optimization</span>
+                        <span class="tag">Training Development</span>
+                        <span class="tag">Operations Management</span>
+                        <span class="tag">Startup Experience</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="awards">
+                <h2>Leadership & Recognition</h2>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <p class="award-title">Varsity Swim Team Captain</p>
+                        <p class="award-description">Led varsity swim team while maintaining 4.0+ GPA throughout high school. Competed for 12 years at competitive level.</p>
+                    </div>
+                    <div class="award-item">
+                        <p class="award-title">Robbie's Hope Ambassador</p>
+                        <p class="award-description">Mental health advocate promoting teen suicide prevention and supporting community wellness initiatives.</p>
+                    </div>
+                    <div class="award-item">
+                        <p class="award-title">2024 Boulderthon Finisher</p>
+                        <p class="award-description">Completed marathon in memory of friend lost to suicide, raising awareness for mental health support.</p>
+                    </div>
+                    <div class="award-item">
+                        <p class="award-title">Head Swim Coach</p>
+                        <p class="award-description">Promoted from assistant to head coach, managing competitive training programs and mentoring young athletes.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>2024 Madison Voytko - Biomedical Engineering - University of Colorado Boulder</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Built with care for accessibility and user experience</p>
+        </footer>
+    </div>
+</body>
+</html>
