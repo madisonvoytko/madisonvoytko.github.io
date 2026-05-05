@@ -692,42 +692,71 @@ footer {
                     <p>• Built and validated functional prototype</p>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
-                    
-                    <div>
-                        <img src="images/Instrumentation_CAD_Model.png" style="width: 100%; border-radius: 8px;border: 1px solid var(--border);">
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
-                            CAD Model
-                        </p>
-                    </div>
+                <div style="margin-top: 3rem;">
 
-                    <div>
-                        <img src="images/BMEN_Expo_poster.pptx.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
-                            Final Poster
-                        </p>
-                    </div>
-
-                    <div>
-                        <img src="images/IMG_1270.jpeg" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
-                            Project Team (2nd Place)
-                        </p>
-                    </div>
-                    
-<div style="margin-top: 3rem; text-align: center;">
-    <a href="images/Essential Systems Checkoff_ProxiFit Systems.pptx.pdf" target="_blank" class="btn btn-secondary">
-        View Full Technical Slideshow →
-    </a>
-</div>
-
-                </div>
-
+    <!-- IMAGE GRID -->
+    <div style="
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 2rem;
+    ">
+        
+        <!-- CAD -->
+        <div>
+            <div style="height: 260px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border);">
+                <img src="images/Instrumentation_CAD_Model.png" style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                ">
             </div>
-
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
+                CAD Model
+            </p>
         </div>
+
+        <!-- POSTER -->
+        <div>
+            <div style="height: 260px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border);">
+                <img src="images/BMEN_Expo_poster.pptx.png" style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                ">
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
+                Final Poster
+            </p>
+        </div>
+
+        <!-- TEAM -->
+        <div>
+            <div style="height: 260px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border);">
+                <img src="images/IMG_1270.jpeg" style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                ">
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem;">
+                Project Team (2nd Place)
+            </p>
+        </div>
+
     </div>
-</section>
+
+    <!-- CENTERED BUTTON (NOW OUTSIDE GRID) -->
+    <div style="
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+    ">
+        <a href="images/Essential Systems Checkoff_ProxiFit Systems.pptx.pdf" target="_blank" class="btn btn-secondary">
+            View Full Technical Slideshow →
+        </a>
+    </div>
+
+</div>
 
             <!-- LEADERSHIP -->
             <section id="leadership" style="background: var(--bg-secondary);">
